@@ -1,9 +1,9 @@
 package main
 
 import (
-	"4rChd1Ts/Scanf"
 	"4rChd1Ts/config"
 	"4rChd1Ts/help"
+	"4rChd1Ts/scanf"
 	"4rChd1Ts/utils"
 	"flag"
 	"github.com/asaskevich/govalidator"
@@ -25,6 +25,9 @@ func main() {
 	if help.V {
 		help.Version()
 		return
+	}
+	if help.T != 0 {
+		config.DefaultMaxWorker = help.T
 	}
 	if help.D == "" || help.U == "" || help.H {
 		flag.Usage()
